@@ -32,6 +32,26 @@ namespace csharpapigenerica3.Controllers
         }
 
 
+        /// <summary>
+        /// Endpoint de la raíz de la API.
+        /// Muestra un mensaje de bienvenida con información básica sobre la API.
+        /// </summary>
+        /// <returns>Un mensaje JSON con información de la API.</returns>
+        [AllowAnonymous] // Permite acceso sin autenticación
+        [HttpGet("/")]
+        public IActionResult Inicio()
+        {
+            var mensaje = new
+            {
+                Mensaje = "Bienvenido a la API Genérica en C#!",
+                Documentación = "Para más detalles, visita /swagger",
+                FechaServidor = DateTime.UtcNow
+            };
+
+            return Ok(mensaje);
+}
+
+
 
         /// <summary>
         /// Obtiene todos los registros de una tabla específica en la base de datos.
